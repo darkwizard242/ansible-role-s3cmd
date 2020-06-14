@@ -15,20 +15,24 @@ Available variables are listed below (located in `defaults/main.yml`):
 ### Variables list:
 
 ```yaml
-s3cmd_app: s3cmd
-s3cmd_version: 2.1.0
-s3cmd_dl_url: https://github.com/s3tools/{{ s3cmd_app }}/releases/download/v{{ s3cmd_version }}/{{ s3cmd_app }}-{{ s3cmd_version }}.tar.gz
-s3cmd_bin_path: /usr/local/bin
+s3cmd_debian_pre_reqs:
+  - python3
+  - python3-pip
+s3cmd_debian_pre_reqs_desired_state: present
+s3cmd_pip_executable: pip3
+s3cmd_app_debian_package: s3cmd
+s3cmd_desired_state: present
 ```
 
 ### Variables table:
 
-Variable       | Value (default)                                                                                                                | Description
--------------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------
-s3cmd_app      | s3cmd                                                                                                                          | Defines the app to install i.e. **s3cmd**
-s3cmd_version  | 2.1.0                                                                                                                          | Defined to dynamically fetch the desired version to install. Defaults to: **0.72.0**
-s3cmd_dl_url   | <https://github.com/s3tools/{{> s3cmd_app }}/releases/download/v{{ s3cmd_version }}/{{ s3cmd_app }}-{{ s3cmd_version }}.tar.gz | Defines URL to download the s3cmd binary from.
-s3cmd_bin_path | /usr/local/bin                                                                                                                 | Defined to dynamically set the appropriate path to store s3cmd binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
+Variable                            | Value (default)      | Description
+----------------------------------- | -------------------- | -----------------------------------------------------------------------------------------------------------------
+s3cmd_debian_pre_reqs               | python3, python3-pip | Packages required to install **s3cmd** on Debian based systems. Using python3 as python2.x is EOL by end of 2020.
+s3cmd_debian_pre_reqs_desired_state | present              | Desired state for **s3cmd** pre-requisite apps on Debian systems.
+pip_executable                      | pip3                 | The executable to utilize for installing **pip** package of `s3cmd`.
+s3cmd_app_debian_package            | s3cmd                | Name of s3cmd application package require to be installed i.e. `s3cmd` on Debian based systems.
+s3cmd_desired_state                 | present              | Desired state for **s3cmd**.
 
 ## Dependencies
 
@@ -44,24 +48,24 @@ For default behaviour of role (i.e. installation of **s3cmd**) in ansible playbo
     - darkwizard242.s3cmd
 ```
 
-For customizing behavior of role (i.e. specifying the desired **s3cmd** version) in ansible playbooks.
+For customizing behavior of role (i.e. specifying the desired **s3cmd** state to uninstall) in ansible playbooks.
 
 ```yaml
 - hosts: servers
   roles:
     - darkwizard242.s3cmd
   vars:
-    s3cmd_version: 2.0.2
+    s3cmd_desired_state: absent
 ```
 
-For customizing behavior of role (i.e. placing binary of **s3cmd** package in different location) in ansible playbooks.
+For customizing behavior of role (i.e. specifying the desired **s3cmd** state to install/upgrade to latest version) in ansible playbooks.
 
 ```yaml
 - hosts: servers
   roles:
     - darkwizard242.s3cmd
   vars:
-    s3cmd_bin_path: /bin/
+    s3cmd_bin_path: latest
 ```
 
 ## License
