@@ -1,0 +1,31 @@
+---
+galaxy_info:
+  role_name: s3cmd
+  author: Ali Muhammad
+  description: Installs/Uninstalls 's3cmd', it is a popular commandline client for s3.
+  company: none
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+        - buster
+    - name: EL
+      versions:
+        - 7
+        - 8
+
+  galaxy_tags:
+    - s3cmd
+    - s3
+    - s3client
+    - system
+    - os
