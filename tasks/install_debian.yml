@@ -1,0 +1,10 @@
+---
+# tasks file for s3cmd
+
+- name: "Downloading and extracting {{ s3cmd_app }} {{ s3cmd_version }} on Debian based systems."
+  unarchive:
+    src: "{{ s3cmd_dl_url }}"
+    dest: "{{ s3cmd_bin_path }}"
+    extra_opts:
+      - s3cmd
+    remote_src: yes
