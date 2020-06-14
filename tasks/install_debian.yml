@@ -1,10 +1,14 @@
 ---
 # tasks file for s3cmd
 
-- name: "Downloading and extracting {{ s3cmd_app }} {{ s3cmd_version }} on Debian based systems."
-  unarchive:
-    src: "{{ s3cmd_dl_url }}"
-    dest: "{{ s3cmd_bin_path }}"
-    extra_opts:
-      - s3cmd
-    remote_src: yes
+- name: Installing {{ s3cmd_debian_pre_reqs }} on Debian based systems as pre-requisite.
+  package:
+    name: "{{ s3cmd_debian_pre_reqs }}"
+    state: "{{ s3cmd_debian_pre_reqs_desired_state }}"
+    force_apt_get: yes
+
+- name: Installing {{ s3cmd_app_debian_package }} on Debian based systems.
+  pip:
+    executable: "{{ s3cmd_pip_executable }}"
+    name: "{{ s3cmd_app_debian_package }}"
+    state: "{{ s3cmd_desired_state }}"
