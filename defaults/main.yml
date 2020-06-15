@@ -1,0 +1,10 @@
+---
+# defaults file for s3cmd
+
+s3cmd_debian_pre_reqs:
+  - python3
+  - python3-pip
+s3cmd_debian_pre_reqs_desired_state: present
+s3cmd_pip_executable: pip3
+s3cmd_app_debian_package: s3cmd
+s3cmd_desired_state: present
