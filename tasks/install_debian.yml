@@ -1,13 +1,13 @@
 ---
-# tasks file for s3cmd
+# tasks file for s3cmd | Debian/Ubuntu Family
 
-- name: Installing {{ s3cmd_debian_pre_reqs }} on Debian based systems as pre-requisite.
+- name: Debian/Ubuntu Family | Installing {{ s3cmd_debian_pre_reqs }} as pre-requisite.
   package:
     name: "{{ s3cmd_debian_pre_reqs }}"
     state: "{{ s3cmd_debian_pre_reqs_desired_state }}"
     force_apt_get: yes
 
-- name: Installing {{ s3cmd_app_debian_package }} on Debian based systems.
+- name: Debian/Ubuntu Family | Installing {{ s3cmd_app_debian_package }}
   pip:
     executable: "{{ s3cmd_pip_executable }}"
     name: "{{ s3cmd_app_debian_package }}"
