@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: s3cmd
-  author: Ali Muhammad
+  author: darkwizard242
   description: Installs/Uninstalls 's3cmd', it is a popular commandline client for s3.
   company: none
   license: MIT
