@@ -26,13 +26,13 @@ s3cmd_desired_state: present
 
 ### Variables table:
 
-Variable                            | Value (default)      | Description
------------------------------------ | -------------------- | -----------------------------------------------------------------------------------------------------------------
-s3cmd_debian_pre_reqs               | python3, python3-pip | Packages required to install **s3cmd** on Debian based systems. Using python3 as python2.x is EOL by end of 2020.
-s3cmd_debian_pre_reqs_desired_state | present              | Desired state for **s3cmd** pre-requisite apps on Debian systems.
-pip_executable                      | pip3                 | The executable to utilize for installing **pip** package of `s3cmd`.
-s3cmd_app_debian_package            | s3cmd                | Name of s3cmd application package require to be installed i.e. `s3cmd` on Debian based systems.
-s3cmd_desired_state                 | present              | Desired state for **s3cmd**.
+Variable                            | Description
+----------------------------------- | -----------------------------------------------------------------------------------------------------------------
+s3cmd_debian_pre_reqs               | Packages required to install **s3cmd** on Debian based systems. Using python3 as python2.x is EOL by end of 2020.
+s3cmd_debian_pre_reqs_desired_state | Desired state for **s3cmd** pre-requisite apps on Debian systems.
+pip_executable                      | The executable to utilize for installing **pip** package of `s3cmd`.
+s3cmd_app_debian_package            | Name of s3cmd application package require to be installed i.e. `s3cmd` on Debian based systems.
+s3cmd_desired_state                 | present                                                                                                           | Desired state for **s3cmd**.
 
 ## Dependencies
 
@@ -74,4 +74,4 @@ For customizing behavior of role (i.e. specifying the desired **s3cmd** state to
 
 ## Author Information
 
-This role was created by [Ali Muhammad](https://www.linkedin.com/in/ali-muhammad-759791130/).
+This role was created by [Ali Muhammad](https://www.alimuhammad.dev/).
