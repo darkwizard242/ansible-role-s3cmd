@@ -2,13 +2,13 @@
 # tasks file for s3cmd | Debian/Ubuntu Family
 
 - name: Debian/Ubuntu Family | Installing {{ s3cmd_debian_pre_reqs }} as pre-requisite.
-  package:
+  ansible.builtin.package:
     name: "{{ s3cmd_debian_pre_reqs }}"
     state: "{{ s3cmd_debian_pre_reqs_desired_state }}"
     force_apt_get: yes
 
 - name: Debian/Ubuntu Family | Installing {{ s3cmd_app_debian_package }}
-  pip:
+  ansible.builtin.pip:
     executable: "{{ s3cmd_pip_executable }}"
     name: "{{ s3cmd_app_debian_package }}"
     state: "{{ s3cmd_desired_state }}"
